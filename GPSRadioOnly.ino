@@ -237,11 +237,11 @@ uint16_t gps_CRC16_checksum (char *string)
 /*Start Radio*/
 void initialiseInterrupt()
 {
-  //We are using timer2 as servo library uses timer1
+
   //This might not cause a problem, but better to be safe!
   cli();          //disable global interrupts
-  TCCR1A = 0;     //set entire TCCR2A register to 0
-  TCCR1B = 0;     //same for TCCR2B
+  TCCR1A = 0;     //set entire TCCR1A register to 0
+  TCCR1B = 0;     //same for TCCR1B
   //OCR1A = 15624;
   OCR1A = F_CPU / 1024 / RTTY_BAUD;  //set compare match register to desired timer count  
   TCCR1B |= (1 << WGM12); //turn on CTC mode
